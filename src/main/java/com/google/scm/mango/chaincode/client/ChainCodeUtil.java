@@ -7,6 +7,9 @@ import java.nio.file.Paths;
 
 public class ChainCodeUtil {
 
+    //public static final String baseNetworkConfigPath = "/home/manendra/Jay/fabric-samples";
+    public static final String baseNetworkConfigPath = "/home/manendrakumar/Jay_Hyperledger/fabric-samples";
+
     private static Contract chainCodeContract;
 
     private static void init(){
@@ -25,7 +28,7 @@ public class ChainCodeUtil {
             Path walletPath = Paths.get("wallet");
             Wallet wallet = Wallets.newFileSystemWallet(walletPath);
             // load a CCP
-            Path networkConfigPath = Paths.get("..", "test-network", "organizations", "peerOrganizations", "org1.example.com", "connection-org1.yaml");
+            Path networkConfigPath = Paths.get(baseNetworkConfigPath, "test-network", "organizations", "peerOrganizations", "org1.example.com", "connection-org1.yaml");
 
             Gateway.Builder builder = Gateway.createBuilder();
             builder.identity(wallet, "mangoScmUser").networkConfig(networkConfigPath).discovery(true);
